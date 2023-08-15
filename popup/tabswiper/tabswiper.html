@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Tabswiper</title>
+    <link rel='stylesheet' href='../css/popup.css' />
+    <link rel='stylesheet' href='./tabswiper.css' />
+  </head>
+
+  <body>
+    <main class='popup'>
+      <article class='tabswiper'>
+        <header>
+          <section class='tabCounter'>
+            Tab 1 of 20
+          </section>
+          <a
+            class='infoLink'
+            target='_blank'
+            href='#'
+          >
+            Info
+          </a>
+        </header>
+        <section class='currentTab'>
+          <section id='titleTab' class='title'>
+            Some title here
+          </section>
+          <a
+            id='linkTab'
+            class='url'
+            href='https://some.url/here'
+          >
+            https://some.url/here
+          </a>
+        </section>
+        <footer>
+          <button
+            id='buttonClose'
+            class='actionButton close'
+            title='Close this tab. Shortcuts: [J], [Left Arrow]'
+          >
+            Close
+          </button>
+          <button
+            id='buttonKeep'
+            class='actionButton keep'
+            title='Keep this tab. Shortcuts: [K], [Right Arrow]'
+          >
+            Keep
+          </button>
+        </footer>
+      </article>
+    </main>
+
+    <script type='module' src='./tabswiper.js'></script>
+  </body>
+</html>

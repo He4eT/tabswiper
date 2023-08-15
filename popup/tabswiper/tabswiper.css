@@ -1,0 +1,53 @@
+.tabswiper {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-accent);
+  color: var(--color-text);
+  width: 640px;
+}
+
+/* Header */
+
+.tabswiper header {
+  padding: var(--step);
+  border-block-end: 1px solid var(--color-accent);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  aligh-items: center;
+}
+
+/* Current Tab */
+
+.tabswiper .currentTab {
+  padding: calc(1 * var(--step)) var(--step);
+  cursor: pointer;
+  word-wrap: break-word;
+  /* line-height: 1.5; */
+}
+
+.tabswiper .currentTab .title {
+  /* font-size: 1.2em; */
+  margin-block-end: calc(1 * var(--step));
+  font-weight: bold;
+}
+
+.tabswiper .currentTab .url {
+  /* font-size: 0.8em; */
+  color: var(--color-accent);
+}
+
+/* Footer */
+
+.tabswiper footer {
+  padding: var(--step);
+  border-block-start: 1px solid var(--color-accent);
+
+  display: flex;
+  flex-direction: row;
+  gap: var(--step);
+}
+
+.tabswiper footer .actionButton {
+  flex: 1 1 auto;
+}

@@ -12,16 +12,32 @@
       <article class='tabswiper'>
         <header>
           <section class='tabCounter'>
-            Tab 1 of 20
+            <img id='favicon' class='favicon' alt='Favicon' />
+            Tab&nbsp;<span id='tabNumber'>
+              0
+            </span>&nbsp;of&nbsp;<span id='tabTotalNumber'>
+              0
+            </span>
           </section>
-          <a
-            class='infoLink'
-            target='_blank'
-            href='#'
-          >
-            Info
-          </a>
+          <section class='actions'>
+            <button
+              id='buttonClose'
+              class='actionButton close'
+              title='Close this tab. Shortcuts: [J], [Left Arrow]'
+            >
+              Close
+            </button>
+            <button
+              id='buttonKeep'
+              class='actionButton keep'
+              title='Keep this tab. Shortcuts: [K], [Right Arrow]'
+            >
+              Keep
+            </button>
+          </section>
         </header>
+        <footer>
+        </footer>
         <section class='currentTab'>
           <section id='titleTab' class='title'>
             Some title here
@@ -34,22 +50,6 @@
             https://some.url/here
           </a>
         </section>
-        <footer>
-          <button
-            id='buttonClose'
-            class='actionButton close'
-            title='Close this tab. Shortcuts: [J], [Left Arrow]'
-          >
-            Close
-          </button>
-          <button
-            id='buttonKeep'
-            class='actionButton keep'
-            title='Keep this tab. Shortcuts: [K], [Right Arrow]'
-          >
-            Keep
-          </button>
-        </footer>
       </article>
     </main>
 

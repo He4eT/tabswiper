@@ -1,3 +1,6 @@
+/* https://png-pixel.com/ */
+const defaultFavicon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
+
 /* */
 
 const state = {
@@ -6,21 +9,27 @@ const state = {
   currentTab: null,
 }
 
+const getCurrentState = () => state
+
+/* */
+
 const updateState = () =>
   updateTabs()
     .then(updateCurrent)
     .then(updateInterface)
 
 const updateTabs = () =>
-  browser.tabs.query({currentWindow: true})
+  browser.tabs.query({ currentWindow: true })
     .then((tabs) => tabs.reverse())
     .then((tabs) => void (state.tabs = tabs))
 
 const updateCurrent = () => {
-  const filteredTabs = state.tabs
+  const untouchedTabs = state.tabs
     .filter(({ id }) => state.skipped.includes(id) === false)
-  state.currentTab = filteredTabs[0] ?? null
+  state.currentTab = untouchedTabs[0] ?? null
 }
+
+/* */
 
 const keepTab = (tab) => {
   state.skipped.push(tab.id)
@@ -29,44 +38,86 @@ const keepTab = (tab) => {
 
 const goToTab = (tab) => {
   browser.tabs.update(tab.id, { active: true })
-  updateState()
+    .then(updateState)
 }
 
 const closeTab = (tab) => {
   browser.tabs.remove(tab.id)
-  updateState()
+    .then(updateState)
 }
 
 /* */
 
-const setDOMListeners = () => {
-  const pairs = [
+const setDOMListeners = (getCurrentState) => {
+  /* UI controls with handlers. */
+
+  const controls = [
     ['buttonClose', closeTab],
     ['buttonKeep', keepTab],
     ['linkTab', goToTab],
   ]
 
-  pairs.forEach(([elementId, handler]) => {
+  controls.forEach(([elementId, handler]) => {
     document.getElementById(elementId).addEventListener('click', (e) => {
-      console.log('Element:', elementId, 'Handler:', handler)
       e.preventDefault()
-      handler(state.currentTab)
+      handler(getCurrentState().currentTab)
     })
+  })
+
+  /* Keyboard handlers. */
+  document.addEventListener('keydown', (e) => {
+    switch (e.key) {
+      case 'j':
+      case 'ArrowLeft':
+        closeTab(getCurrentState().currentTab)
+        return
+      case 'k':
+      case 'ArrowRight':
+        keepTab(getCurrentState().currentTab)
+        return
+      case 'f':
+        goToTab(getCurrentState().currentTab)
+        return
+      case 'r':
+        location.reload()
+        return
+    }
+  })
+
+  /* Replace unavalible favicon with default one. */
+  document.getElementById('favicon').addEventListener('error', (e) => {
+    e.currentTarget.src = defaultFavicon
+  })
+
+  /* Close popup when tab switched. */
+  browser.tabs.onActivated.addListener(() => {
+    window.close()
   })
 }
 
 const updateInterface = () => {
-  console.log(state)
+  /* Close popup if there ara no tabs. */
+  if (state.tabs.length === 0) {
+    window.close()
+    return
+  }
 
+  /* Start over when all tabs skipped. */
   if (state.currentTab === null) {
     location.reload()
     return
   }
 
+  /* Update UI. */
   const items = [
+    ['favicon', 'src', state.currentTab.favIconUrl ?? defaultFavicon],
     ['titleTab', 'textContent', state.currentTab.title],
     ['linkTab', 'textContent', state.currentTab.url],
     ['linkTab', 'href', state.currentTab.url],
+    ['tabTotalNumber', 'textContent', state.tabs.length],
+    ['tabNumber', 'textContent', state.tabs.length - state.tabs.findIndex(({ id }) =>
+      id === state.currentTab.id
+    )],
   ]
 
   items.forEach(([elementId, property, value]) => {
@@ -76,10 +127,12 @@ const updateInterface = () => {
 
 /* */
 
-const init = () =>
+// const state = initState({onUpdate: updateInterface})
+// setDomListeners(state)
+
+const init = () => {
   updateState()
-    .then(setDOMListeners)
-    // .then(setKeyboardListeners)
-    // .then(setBrowserListeners)
+  setDOMListeners(getCurrentState)
+}
 
 init()

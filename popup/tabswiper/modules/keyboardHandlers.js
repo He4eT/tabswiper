@@ -10,6 +10,7 @@ export const attachKeyboardHandlers = (store) => {
         store.actions.keepTab(store.getCurrentState().currentTab)
         return
       case 'f':
+      case 'ArrowUp':
         store.actions.goToTab(store.getCurrentState().currentTab)
         return
       case 'r':

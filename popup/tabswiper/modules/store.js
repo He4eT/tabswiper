@@ -12,7 +12,7 @@ export const init = ({
   /* */
 
   const fetchTabs = () =>
-    browserTabs.query({ currentWindow: true })
+    browserTabs.query({ currentWindow: true, active: false })
       .then((tabs) => tabs.reverse())
       .then((tabs) => void (state.tabs = tabs))
 

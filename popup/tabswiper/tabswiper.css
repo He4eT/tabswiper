@@ -1,65 +1,56 @@
 .tabswiper {
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-accent);
-  color: var(--color-text);
-  width: 640px;
   padding: calc(2 * var(--step));
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  width: 600px;
 }
 
 /* Header */
 
-.tabswiper header {
-  padding-block-end: calc(2 * var(--step));
-  /* border-block-end: 1px solid var(--color-accent); */
-
+header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding-block-end: calc(2 * var(--step));
 }
 
-.tabswiper .favicon {
+header .favicon {
   width: calc(3 * var(--step));
   height: calc(3 * var(--step));
   margin-inline-end: calc(1 * var(--step));
 }
 
-.tabswiper .tabCounter {
+header .tabCounter {
   display: flex;
   align-items: center;
 }
 
-.tabswiper .actions {
+header .actions {
   display: flex;
-  flex-direction: row;
-  gap: var(--step);
+  align-items: center;
+  gap: calc(2 * var(--step));
+}
+
+header .actions .actionButton {
+  padding: 0;
 }
 
 /* Current Tab */
 
-.tabswiper .currentTab {
-  /* padding-block-start: calc(2 * var(--step)); */
-  /* padding-block-end: calc(3 * var(--step)); */
+.currentTab {
+  display: block;
+  color: inherit;
   cursor: pointer;
+  text-decoration: none;
   word-wrap: break-word;
-  /* line-height: 1.5; */
 }
 
-.tabswiper .currentTab .title {
+.currentTab .title {
   font-size: 1.25em;
   margin-block-end: calc(1 * var(--step));
-  /* font-weight: bold; */
 }
 
-.tabswiper .currentTab .url {
-  /* font-size: 0.8em; */
+.currentTab .url {
   color: var(--color-accent);
-  text-decoration: none;
-}
-
-/* Footer */
-
-
-.tabswiper footer .actionButton {
-  flex: 1 1 auto;
 }

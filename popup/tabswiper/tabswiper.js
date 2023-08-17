@@ -21,7 +21,7 @@ const store = tabswiperStore.init({
 
     /* Update UI. */
     updateInterface(state)
-  }
+  },
 })
 
 /* Attach UI handlers. */
@@ -35,4 +35,3 @@ enableFaviconFallback()
 browser.tabs.onActivated.addListener(() => {
   window.close()
 })
-

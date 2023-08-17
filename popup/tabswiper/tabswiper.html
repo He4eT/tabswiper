@@ -10,6 +10,7 @@
   <body>
     <main class='popup'>
       <article class='tabswiper'>
+
         <header>
           <section class='tabCounter'>
             <img id='favicon' class='favicon' alt='Favicon' />
@@ -19,37 +20,37 @@
               0
             </span>
           </section>
+
           <section class='actions'>
             <button
               id='buttonClose'
-              class='actionButton close'
-              title='Close this tab. Shortcuts: [J], [Left Arrow]'
+              class='actionButton'
+              title='Close this tab (Press D or Left Arrow)'
             >
               Close
             </button>
             <button
-              id='buttonKeep'
-              class='actionButton keep'
-              title='Keep this tab. Shortcuts: [K], [Right Arrow]'
+              id='buttonShow'
+              class='actionButton'
+              title='Switch to this tab (Press F)'
             >
-              Keep
+              Show
+            </button>
+            <button
+              id='buttonSkip'
+              class='actionButton'
+              title='Proceed to the next tab (Press K or Right Arrow)'
+            >
+              Skip
             </button>
           </section>
         </header>
-        <footer>
-        </footer>
-        <section class='currentTab'>
-          <section id='titleTab' class='title'>
-            Some title here
-          </section>
-          <a
-            id='linkTab'
-            class='url'
-            href='https://some.url/here'
-          >
-            https://some.url/here
-          </a>
-        </section>
+
+        <a href='#' id='currentTab' class='currentTab'>
+          <section id='tabTitle' class='title'>&nbsp;</section>
+          <section id='tabURL' class='url'>&nbsp;</section>
+        </a>
+
       </article>
     </main>
 

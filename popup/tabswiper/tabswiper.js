@@ -7,7 +7,7 @@ import { enableFaviconFallback, updateInterface } from './modules/dom.js'
 const store = tabswiperStore.init({
   tabs: browser.tabs,
   onStateUpdate: (state) => {
-    /* Close popup if there ara no tabs. */
+    /* Close popup if there are no tabs. */
     if (state.tabs.length === 0) {
       window.close()
       return

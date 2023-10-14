@@ -2,6 +2,8 @@
 
 A Firefox extension that makes trimming your tabs as effortless as swiping on a dating app.
 
+![Extension Popup Window](/screenshots/Screnshot_1.png?raw=true)
+
 ## How to Use It
 
 1. Open the extension's popup window using the extension icon or by pressing `Shift + F2`.

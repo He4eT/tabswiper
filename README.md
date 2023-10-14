@@ -20,7 +20,7 @@ You can customize the keyboard shortcut by accessing the `Manage Extension Short
 
 1. In the Firefox address bar, type `about:debugging` and press Enter.
 
-1. Click on "This Firefox", then select "Load Temporary Add-on...".
+1. Click on `This Firefox`, then select `Load Temporary Add-on...`.
 
 1. Choose the `manifest.json` file.
 

@@ -3,6 +3,12 @@
     "default_title": "Tabswiper",
     "default_popup": "popup/tabswiper/tabswiper.html"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tabswiper@oddsquat.org",
+      "strict_min_version": "110.0"
+    }
+  },
   "commands": {
     "_execute_action": {
       "suggested_key": {

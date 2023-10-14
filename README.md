@@ -2,7 +2,7 @@
 
 A Firefox extension that makes trimming your tabs as effortless as swiping on a dating app.
 
-![Extension Popup Window](/screenshots/Screnshot_1.png?raw=true)
+![Extension Popup Window](/screenshots/Screenshot_1.png?raw=true)
 
 ## How to Use It
 

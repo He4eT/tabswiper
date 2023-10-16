@@ -2,6 +2,8 @@
 
 A Firefox extension that makes trimming your tabs as effortless as swiping on a dating app.
 
+Availible on [addons.mozilla.org](https://addons.mozilla.org/addon/tabswiper/).
+
 ![Extension Popup Window](/screenshots/Screenshot_1.png?raw=true)
 
 ## How to Use It

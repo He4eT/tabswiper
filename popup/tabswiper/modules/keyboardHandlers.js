@@ -1,19 +1,19 @@
 export const attachKeyboardHandlers = (store) => {
   document.addEventListener('keydown', (e) => {
-    switch (e.key) {
-      case 'd':
+    switch (e.code) {
+      case 'KeyD':
       case 'ArrowLeft':
         store.actions.closeTab(store.getCurrentState().currentTab)
         return
-      case 'k':
+      case 'KeyK':
       case 'ArrowRight':
         store.actions.keepTab(store.getCurrentState().currentTab)
         return
-      case 'f':
+      case 'KeyF':
       case 'ArrowUp':
         store.actions.goToTab(store.getCurrentState().currentTab)
         return
-      case 'r':
+      case 'KeyR':
         location.reload()
         return
     }
